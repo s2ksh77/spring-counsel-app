@@ -1,0 +1,20 @@
+{
+  "search.exclude": {
+    "**/.yarn": true,
+    "**/.pnp.*": true
+  },
+  "eslint.nodePath": ".yarn/sdks",
+  "prettier.prettierPath": ".yarn/sdks/prettier/index.js",
+  "typescript.tsdk": ".yarn/sdks/typescript/lib",
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "workbench.colorCustomizations": {
+    // "activityBar.activeBackground": "#ffffff",
+    "activityBar.foreground": "#ebe134",
+    "activityBar.background": "#464964",
+    "activityBarItem.settingsProfilesForeground": "#ffffff",
+    "titleBar.activeBackground": "#464964",
+    "titleBar.activeForeground": "#ffffff",
+    "titleBar.inactiveBackground": "#464964",
+    "titleBar.inactiveForeground": "#ffffff"
+  }
+}
