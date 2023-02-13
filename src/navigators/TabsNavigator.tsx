@@ -1,95 +1,68 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, View } from 'react-native';
-import TabIcon from '../components/auth/nav/TabIcon';
-import SharedStackNav from './SharedStackNav';
-import useMe from '../hooks/useMe';
+import React from "react";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import TabIcon from "../components/assets/TabIcons";
+import SharedStackNav from "./SharedNavigator";
+import CalendarScreen from "../screens/CalendarScreen";
 
 const Tabs = createBottomTabNavigator();
 
 const TabsNav = () => {
-  const { data } = useMe();
-
   return (
     <Tabs.Navigator
       screenOptions={{
         headerShown: false,
         tabBarShowLabel: false,
-        tabBarActiveTintColor: 'white',
+        tabBarActiveTintColor: "black",
         tabBarStyle: {
-          backgroundColor: 'black',
-          borderTopColor: 'rgba(255,255,255, 0.3)',
+          backgroundColor: "white",
+          borderTopColor: "rgba(255,255,255, 0.3)",
         },
       }}
     >
       <Tabs.Screen
-        name="Feed"
+        name="홈"
         options={{
+          title: "홈",
           tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon iconName={'home'} color={color} focused={focused} />
+            <TabIcon iconName={"home"} color={color} focused={focused} />
           ),
         }}
       >
-        {() => <SharedStackNav screenName="Feed" />}
+        {() => <div>test</div>}
       </Tabs.Screen>
       <Tabs.Screen
-        name="Search"
+        name="일정 관리"
         options={{
+          title: "일정 관리",
           tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon iconName={'search'} color={color} focused={focused} />
+            <TabIcon iconName={"calendar"} color={color} focused={focused} />
           ),
         }}
       >
-        {() => <SharedStackNav screenName="Search" />}
+        {() => <SharedStackNav screenName={"캘린더"} />}
       </Tabs.Screen>
       <Tabs.Screen
-        name="Camera"
-        component={View}
-        listeners={({ navigation }) => {
-          return {
-            tabPress: (e) => {
-              e.preventDefault();
-              navigation.navigate('Upload');
-            },
-          };
-        }}
+        name="상담 예약"
         options={{
+          title: "상담 예약",
           tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon iconName={'camera'} color={color} focused={focused} />
-          ),
-        }}
-      />
-      <Tabs.Screen
-        name="Notifications"
-        options={{
-          tabBarIcon: ({ focused, color, size }) => (
-            <TabIcon iconName={'heart'} color={color} focused={focused} />
+            <TabIcon iconName={"list"} color={color} focused={focused} />
           ),
         }}
       >
-        {() => <SharedStackNav screenName="Notifications" />}
+        {() => <div>test</div>}
       </Tabs.Screen>
-
       <Tabs.Screen
-        name="Me"
+        name="프로필"
         options={{
-          tabBarIcon: ({ focused, color, size }) =>
-            data?.me?.avatar ? (
-              <Image
-                style={{
-                  width: 20,
-                  height: 20,
-                  borderRadius: 10,
-                  ...(focused && { borderColor: 'white', borderWidth: 1 }),
-                }}
-                source={{ uri: data?.me?.avatar }}
-              />
-            ) : (
-              <TabIcon iconName={'person'} color={color} focused={focused} />
-            ),
+          title: "프로필",
+          tabBarIcon: ({ focused, color, size }) => (
+            <TabIcon iconName={"person"} color={color} focused={focused} />
+          ),
         }}
       >
-        {() => <SharedStackNav screenName="Me" />}
+        {/* {() => <SharedStackNav screenName="Notifications" />} */}
+        {() => <div>aaa</div>}
       </Tabs.Screen>
     </Tabs.Navigator>
   );
