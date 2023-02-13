@@ -1,12 +1,16 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import SpringCounsel from './src';
+import { useState } from 'react';
+import LoginNavigator from './src/navigators/LoginNavigator';
+import StackNavigator from './src/navigators/StackNavigator';
+import { NavigationContainer } from '@react-navigation/native';
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   return (
-    <View style={styles.container}>
-      <SpringCounsel />
-    </View>
+    <NavigationContainer>
+      {isLoggedIn ? <LoginNavigator /> : <StackNavigator />}
+    </NavigationContainer>
   );
 }
 
