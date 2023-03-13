@@ -5,7 +5,7 @@ class APIClass {
   instance;
   constructor() {
     this.instance = axios.create({
-      baseURL: 'https://www.bom-counseling.com',
+      baseURL: 'http://www.bom-counseling.com',
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
